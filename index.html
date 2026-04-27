@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Más Bazar — Todo para tu hogar</title>
+  <meta name="description" content="Más Bazar: productos para cocina, baño, organización, decoración, perfumería y textiles. Las mejores marcas con envío a todo el país.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ── COOKIE BANNER ── -->
+<div class="cookie-banner hide" id="cookieBanner">
+  <p>Al navegar por este sitio <strong>aceptás el uso de cookies</strong> para agilizar tu experiencia de compra.</p>
+  <button class="btn-cookie" id="cookieAccept">Entendido</button>
+</div>
+
+<!-- ── TICKER ── -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="ticker-item">🚚 Envíos a todo el país</span>
+    <span class="ticker-sep">|</span>
+    <span class="ticker-item">💳 3 cuotas sin interés en todas tus compras</span>
+    <span class="ticker-sep">|</span>
+    <span class="ticker-item">🏦 20% OFF pagando con transferencia bancaria</span>
+    <span class="ticker-sep">|</span>
+    <span class="ticker-item">📦 Más de 800 productos para tu hogar</span>
+    <span class="ticker-sep">|</span>
+    <span class="ticker-item">🔄 Cambios y devoluciones</span>
+    <span class="ticker-sep">|</span>
+    <!-- duplicado para loop infinito -->
+    <span class="ticker-item">🚚 Envíos a todo el país</span>
+    <span class="ticker-sep">|</span>
+    <span class="ticker-item">💳 3 cuotas sin interés en todas tus compras</span>
+    <span class="ticker-sep">|</span>
+    <span class="ticker-item">🏦 20% OFF pagando con transferencia bancaria</span>
+    <span class="ticker-sep">|</span>
+    <span class="ticker-item">📦 Más de 800 productos para tu hogar</span>
+    <span class="ticker-sep">|</span>
+    <span class="ticker-item">🔄 Cambios y devoluciones</span>
+    <span class="ticker-sep">|</span>
+  </div>
+</div>
+
+<!-- ── HEADER ── -->
+<header class="header" id="mainHeader">
+  <div class="header-inner">
+    <!-- Búsqueda -->
+    <div class="header-search">
+      <input type="text" placeholder="Buscar..." id="headerSearchInput" aria-label="Buscar productos">
+      <button class="search-btn" onclick="openSearch()" aria-label="Buscar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+    </div>
+    <!-- Logo -->
+    <div class="header-logo">
+      <a href="index.html" class="logo-link">
+        <div class="logo-store">Más bazar</div>
+      </a>
+    </div>
+    <!-- Iconos -->
+    <div class="header-icons">
+      <button class="icon-btn" aria-label="Mi cuenta">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </button>
+      <button class="icon-btn" onclick="openCart()" aria-label="Carrito">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        <span class="cart-badge" id="cartBadge1"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="productos.html?cat=cocina"       class="nav-link">Cocina y Bazar</a>
+    <a href="productos.html?cat=organizacion" class="nav-link">Organización</a>
+    <a href="productos.html?cat=bano"         class="nav-link">Baño</a>
+    <a href="productos.html?cat=deco"         class="nav-link">Deco y Hogar</a>
+    <a href="productos.html?cat=blanqueria"   class="nav-link">Blanquería</a>
+    <a href="productos.html?cat=sahumerios"   class="nav-link">Sahumerios</a>
+    <a href="productos.html?cat=perfumeria"   class="nav-link">Perfumería</a>
+    <a href="productos.html?cat=textiles"     class="nav-link">Textiles</a>
+    <a href="productos.html"                  class="nav-link" style="font-weight:700">Todo el catálogo</a>
+  </div>
+</nav>
+
+<!-- ── HERO SLIDER ── -->
+<div class="hero-wrapper">
+  <div class="hero-track" id="heroTrack">
+
+    <!-- Slide 1: Cocina -->
+    <div class="hero-slide">
+      <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1400&h=560&q=85')"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Novedad de temporada</p>
+        <h1 class="hero-title">Cocina<br>al detalle</h1>
+        <p class="hero-sub">Herméticos, tarros, cubiertos y más. Organizá tu cocina como siempre quisiste.</p>
+        <a href="productos.html?cat=cocina" class="btn-hero">Ver todo →</a>
+      </div>
+    </div>
+
+    <!-- Slide 2: Organización -->
+    <div class="hero-slide">
+      <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1400&h=560&q=85')"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Para cada espacio</p>
+        <h1 class="hero-title">Ordená<br>tu hogar</h1>
+        <p class="hero-sub">Cestos, recipientes y soluciones de organización para cada rincón de tu casa.</p>
+        <a href="productos.html?cat=organizacion" class="btn-hero">Explorar →</a>
+      </div>
+    </div>
+
+    <!-- Slide 3: Living / Deco -->
+    <div class="hero-slide">
+      <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&h=560&q=85')"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Deco, Perfumes &amp; Textiles</p>
+        <h1 class="hero-title">Estilo<br>en cada detalle</h1>
+        <p class="hero-sub">Relojes de pared, perfumes de autor y juegos de sábanas de microfibra premium.</p>
+        <a href="productos.html" class="btn-hero">Descubrí →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Controles -->
+  <button class="slider-arrow prev" onclick="prevSlide()" aria-label="Anterior">&#8249;</button>
+  <button class="slider-arrow next" onclick="nextSlide()" aria-label="Siguiente">&#8250;</button>
+  <div class="slider-dots" id="sliderDots"></div>
+</div>
+
+<!-- ── TRUST BADGES ── -->
+<section class="trust">
+  <div class="trust-grid">
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+          <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+        </svg>
+      </div>
+      <div>
+        <div class="trust-text-title">Envíos a todo el país</div>
+        <div class="trust-text-desc">Coordinamos entrega a tu domicilio</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/>
+        </svg>
+      </div>
+      <div>
+        <div class="trust-text-title">3 cuotas sin interés</div>
+        <div class="trust-text-desc">Con todas las tarjetas de crédito</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+      </div>
+      <div>
+        <div class="trust-text-title">20% OFF transferencia</div>
+        <div class="trust-text-desc">Ahorrá pagando por transferencia bancaria</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+        </svg>
+      </div>
+      <div>
+        <div class="trust-text-title">Cambios y devoluciones</div>
+        <div class="trust-text-desc">Comprá con total tranquilidad</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CATEGORÍAS DESTACADAS ── -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Explorá por categoría</h2>
+      <a href="productos.html" class="section-link">Ver todas →</a>
+    </div>
+    <div class="cats-grid">
+      <a href="productos.html?cat=cocina" class="cat-card">
+        <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&h=360&q=85" alt="Cocina y Bazar" loading="lazy">
+        <div class="cat-overlay"></div>
+        <div class="cat-info">
+          <div class="cat-title">Cocina y Bazar</div>
+          <div class="cat-sub">Herméticos · Cubiertos · Utensilios</div>
+          <span class="cat-cta">Ver productos</span>
+        </div>
+      </a>
+      <a href="productos.html?cat=bano" class="cat-card">
+        <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=600&h=360&q=85" alt="Baño" loading="lazy">
+        <div class="cat-overlay"></div>
+        <div class="cat-info">
+          <div class="cat-title">Baño</div>
+          <div class="cat-sub">Cortinas · Sets · Accesorios</div>
+          <span class="cat-cta">Ver productos</span>
+        </div>
+      </a>
+      <a href="productos.html?cat=deco" class="cat-card">
+        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&h=360&q=85" alt="Deco y Hogar" loading="lazy">
+        <div class="cat-overlay"></div>
+        <div class="cat-info">
+          <div class="cat-title">Deco y Hogar</div>
+          <div class="cat-sub">Relojes · Artículos decorativos</div>
+          <span class="cat-cta">Ver productos</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── DESTACADOS ── -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Destacados</h2>
+      <a href="productos.html" class="section-link">Ver todo →</a>
+    </div>
+    <div class="carousel-wrap">
+      <button class="c-btn left"  onclick="scrollCarousel('destacadosTrack', -1)" aria-label="Anterior">&#8249;</button>
+      <div class="carousel-track" id="destacadosTrack"></div>
+      <button class="c-btn right" onclick="scrollCarousel('destacadosTrack',  1)" aria-label="Siguiente">&#8250;</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── BANNER PROMO ── -->
+<div class="promo-banner">
+  <h2>20% OFF <span class="promo-accent">pagando con transferencia</span></h2>
+  <p>Todos los productos de la tienda con descuento inmediato al pagar por transferencia bancaria.</p>
+  <a href="productos.html" class="btn-promo">Aprovechar descuento</a>
+</div>
+
+<!-- ── NOVEDADES ── -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Novedades</h2>
+      <a href="productos.html" class="section-link">Ver todo →</a>
+    </div>
+    <div class="carousel-wrap">
+      <button class="c-btn left"  onclick="scrollCarousel('novedadesTrack', -1)" aria-label="Anterior">&#8249;</button>
+      <div class="carousel-track" id="novedadesTrack"></div>
+      <button class="c-btn right" onclick="scrollCarousel('novedadesTrack',  1)" aria-label="Siguiente">&#8250;</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── MÁS VENDIDOS ── -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Más vendidos</h2>
+      <a href="productos.html" class="section-link">Ver todo →</a>
+    </div>
+    <div class="carousel-wrap">
+      <button class="c-btn left"  onclick="scrollCarousel('vendidosTrack', -1)" aria-label="Anterior">&#8249;</button>
+      <div class="carousel-track" id="vendidosTrack"></div>
+      <button class="c-btn right" onclick="scrollCarousel('vendidosTrack',  1)" aria-label="Siguiente">&#8250;</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── CATEGORÍAS EXTRA ── -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">También te puede interesar</h2>
+    </div>
+    <div class="cats-grid">
+      <a href="productos.html?cat=perfumeria" class="cat-card">
+        <img src="https://images.unsplash.com/photo-1541643600914-78b084683702?auto=format&fit=crop&w=600&h=360&q=85" alt="Perfumería" loading="lazy">
+        <div class="cat-overlay"></div>
+        <div class="cat-info">
+          <div class="cat-title">Perfumería</div>
+          <div class="cat-sub">Fragancias premium de autor</div>
+          <span class="cat-cta">Ver perfumes</span>
+        </div>
+      </a>
+      <a href="productos.html?cat=textiles" class="cat-card">
+        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&h=360&q=85" alt="Textiles" loading="lazy">
+        <div class="cat-overlay"></div>
+        <div class="cat-info">
+          <div class="cat-title">Textiles</div>
+          <div class="cat-sub">Sábanas de microfibra premium</div>
+          <span class="cat-cta">Ver textiles</span>
+        </div>
+      </a>
+      <a href="productos.html?cat=organizacion" class="cat-card">
+        <img src="https://images.unsplash.com/photo-1597843786411-a7fa8ad44a95?auto=format&fit=crop&w=600&h=360&q=85" alt="Organización" loading="lazy">
+        <div class="cat-overlay"></div>
+        <div class="cat-info">
+          <div class="cat-title">Organización</div>
+          <div class="cat-sub">Cestos · Recipientes · Orden</div>
+          <span class="cat-cta">Ver organización</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="f-logo-store">Más bazar</div>
+        <p>Todo para tu hogar. Bazar · Decoración · Perfumería · Blanquería. Escribinos por mensaje — Av. Vicente López, Quilmes.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/masbazarquilmes" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <a href="https://wa.me/5491100000000" class="social-icon" aria-label="WhatsApp" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Categorías</h4>
+        <ul class="footer-col">
+          <li><a href="productos.html?cat=cocina">Cocina y Bazar</a></li>
+          <li><a href="productos.html?cat=organizacion">Organización</a></li>
+          <li><a href="productos.html?cat=bano">Baño</a></li>
+          <li><a href="productos.html?cat=deco">Deco y Hogar</a></li>
+          <li><a href="productos.html?cat=blanqueria">Blanquería</a></li>
+          <li><a href="productos.html?cat=sahumerios">Sahumerios</a></li>
+          <li><a href="productos.html?cat=perfumeria">Perfumería</a></li>
+          <li><a href="productos.html?cat=textiles">Textiles</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Información</h4>
+        <ul class="footer-col">
+          <li><a href="#">Cómo comprar</a></li>
+          <li><a href="#">Medios de pago</a></li>
+          <li><a href="#">Envíos</a></li>
+          <li><a href="#">Cambios y devoluciones</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Dónde estamos</h4>
+        <ul class="footer-col">
+          <li><span style="color:rgba(255,255,255,.65)">Av. Vicente López</span></li>
+          <li><span style="color:rgba(255,255,255,.65)">Quilmes, Buenos Aires</span></li>
+        </ul>
+        <h4 style="margin-top:20px">Horario</h4>
+        <ul class="footer-col">
+          <li><span style="color:rgba(255,255,255,.6)">Lun – Vie: 9 a 18h</span></li>
+          <li><span style="color:rgba(255,255,255,.6)">Sáb: 9 a 13h</span></li>
+        </ul>
+        <h4 style="margin-top:20px">Seguinos</h4>
+        <ul class="footer-col">
+          <li><a href="https://www.instagram.com/masbazarquilmes" target="_blank">@masbazarquilmes</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Más Bazar Quilmes — Todos los derechos reservados</span>
+      <div class="payment-icons">
+        <span class="pay-badge">Visa</span>
+        <span class="pay-badge">Mastercard</span>
+        <span class="pay-badge">Transferencia</span>
+        <span class="pay-badge">Mercado Pago</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── CARRITO SIDEBAR ── -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-head">
+    <span class="cart-head-title">Tu carrito</span>
+    <button class="cart-close" onclick="closeCart()">×</button>
+  </div>
+  <div class="cart-body" id="cartBody"></div>
+  <div class="cart-foot" id="cartFooter" style="display:none">
+    <div class="cart-total-row">
+      <span>Total con transferencia:</span>
+      <span id="cartTotalVal">$0</span>
+    </div>
+    <button class="btn-wa-pedido" onclick="pedirPorWhatsApp()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+      </svg>
+      Pedir por WhatsApp
+    </button>
+    <button class="btn-seguir" onclick="closeCart()">Seguir comprando</button>
+  </div>
+</div>
+
+<!-- ── WHATSAPP FLOAT ── -->
+<a href="https://wa.me/5491100000000" class="wa-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+  </svg>
+</a>
+
+<!-- ── SEARCH OVERLAY ── -->
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box-wrap">
+    <input type="text" class="search-box-input" id="searchBoxInput" placeholder="Buscar productos...">
+    <div class="search-results-list" id="searchResultsList"></div>
+  </div>
+</div>
+
+<script src="js/products-data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
